@@ -1,1 +1,217 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, hr, p, div {
+    margin: 0;
+    line-height: 1.3;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    outline: none;
+}
+
+/* :host, html {
+    -webkit-text-size-adjust: 100%;
+} */
+
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+
+/* body {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+} */
+
+/* @media screen and (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+} */
+
+/* @media all and (min-width: 50px)   {  html  { font-size:0.1em;  } }
+@media all and (min-width: 100px)  {  html  { font-size:0.2em;  } }
+@media all and (min-width: 200px)  {  html  { font-size:0.4em;  } }
+@media all and (min-width: 300px)  {  html  { font-size:0.6em;  } }
+@media all and (min-width: 400px)  {  html  { font-size:0.8em;  } }
+@media all and (min-width: 500px)  {  html  { font-size:1.0em;  } }
+@media all and (min-width: 600px)  {  html  { font-size:1.2em;  } }
+@media all and (min-width: 700px)  {  html  { font-size:1.4em;  } }
+@media all and (min-width: 800px)  {  html  { font-size:1.6em;  } }
+@media all and (min-width: 900px)  {  html  { font-size:1.8em;  } }
+@media all and (min-width: 1000px) {  html  { font-size:2.0em;  } }
+@media all and (min-width: 1100px) {  html  { font-size:2.2em;  } }
+@media all and (min-width: 1200px) {  html  { font-size:2.4em;  } }
+@media all and (min-width: 1300px) {  html  { font-size:2.6em;  } }
+@media all and (min-width: 1400px) {  html  { font-size:2.8em;  } }
+@media all and (min-width: 1500px) {  html  { font-size:3.0em;  } }
+@media all and (min-width: 1500px) {  html  { font-size:3.2em;  } }
+@media all and (min-width: 1600px) {  html  { font-size:3.4em;  } }
+@media all and (min-width: 1700px) {  html  { font-size:3.6em;  } } */
+
+
+/* @media all and (min-width: 50px)   {  html  { font-size: 6px;  } }
+@media all and (min-width: 100px)  {  html  { font-size: 6.5px;  } }
+@media all and (min-width: 200px)  {  html  { font-size: 7px;  } }
+@media all and (min-width: 300px)  {  html  { font-size: 7.5px;  } }
+@media all and (min-width: 400px)  {  html  { font-size: 8px;  } }
+@media all and (min-width: 500px)  {  html  { font-size: 8.5px;  } }
+@media all and (min-width: 600px)  {  html  { font-size: 9px;  } }
+@media all and (min-width: 700px)  {  html  { font-size: 9.5px;  } }
+@media all and (min-width: 800px)  {  html  { font-size: 10px;  } }
+@media all and (min-width: 900px)  {  html  { font-size: 10.5px;  } }
+@media all and (min-width: 1000px) {  html  { font-size: 11px;  } }
+@media all and (min-width: 1100px) {  html  { font-size: 11.5px;  } }
+@media all and (min-width: 1200px) {  html  { font-size: 12px;  } }
+@media all and (min-width: 1300px) {  html  { font-size: 12.5px;  } }
+@media all and (min-width: 1400px) {  html  { font-size: 13px;  } }
+@media all and (min-width: 1500px) {  html  { font-size: 14px;  } }
+@media all and (min-width: 1500px) {  html  { font-size: 15px;  } }
+@media all and (min-width: 1600px) {  html  { font-size: 16px;  } }
+@media all and (min-width: 1700px) {  html  { font-size: 16px;  } } */
+
+/* @media screen and (min-width: 50px)   {  html  { font-size: 6px;  } }
+@media screen and (min-width: 100px)  {  html  { font-size: 6.5px;  } }
+@media screen and (min-width: 200px)  {  html  { font-size: 7px;  } }
+@media screen and (min-width: 300px)  {  html  { font-size: 7.5px;  } }
+@media screen and (min-width: 400px)  {  html  { font-size: 8px;  } }
+@media screen and (min-width: 500px)  {  html  { font-size: 8.5px;  } }
+@media screen and (min-width: 600px)  {  html  { font-size: 9px;  } }
+@media screen and (min-width: 700px)  {  html  { font-size: 9.5px;  } }
+@media screen and (min-width: 800px)  {  html  { font-size: 10px;  } }
+@media screen and (min-width: 900px)  {  html  { font-size: 10.5px;  } }
+@media screen and (min-width: 1000px) {  html  { font-size: 11px;  } }
+@media screen and (min-width: 1100px) {  html  { font-size: 11.5px;  } }
+@media screen and (min-width: 1200px) {  html  { font-size: 12px;  } }
+@media screen and (min-width: 1300px) {  html  { font-size: 12.5px;  } }
+@media screen and (min-width: 1400px) {  html  { font-size: 13px;  } }
+@media screen and (min-width: 1500px) {  html  { font-size: 14px;  } }
+@media screen and (min-width: 1500px) {  html  { font-size: 15px;  } }
+@media screen and (min-width: 1600px) {  html  { font-size: 16px;  } }
+@media screen and (min-width: 1700px) {  html  { font-size: 16px;  } } */
+
+
+@media screen and (max-width: 1399.98px) { 
+    html {
+        font-size: 15px;
+    }
+ }
+
+ @media screen and (max-width: 1199.98px) { 
+    html {
+        font-size: 14.5px;
+    }
+ }
+
+ @media screen and (max-width: 991.98px) { 
+    html {
+        font-size: 14px;
+    }
+ }
+
+ @media screen and (max-width: 768px) { 
+    html {
+        font-size: 13px;
+    }
+ }
+
+ @media (max-width: 576px) { 
+    /* html {
+        font-size: 12.5px;
+    } */
+ }
+
+@media screen {
+    .print-mimic {
+        /* width: 793px; */
+        /* overflow:visibl; */
+        /* min-width: 0; */
+        /* padding: 20mm; */
+        border: 1px solid #000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+  }
+
+
+  @media print {
+    .print-mimic {
+        /* width: 793px; */
+      transform: scale(1) !important;
+      width: 793px;
+      margin: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .print-hide {
+      display: none;
+    }
+  }
+
+
+@font-face {
+    font-family: 'Georgia-regular';
+    src: url('../public/assets/fonts/georgia.ttf')
+}
+
+@font-face {
+    font-family: 'Georgia-bold';
+    src: url("../public/assets/fonts/georgiab.ttf");
+}
+
+@font-face {
+    font-family: 'Georgia-italic';
+    src: url("../public/assets/fonts/georgiai.ttf");
+}
+
+@font-face {
+    font-family: 'LexendDeca';
+    src: url("../public/assets/fonts/LexendDeca-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: 'DMSerif-Regular';
+    src: url("../public/assets/fonts/DMSerifText-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url("../public/assets/fonts/Inter-VariableFont.ttf");
+}
+
+@font-face {
+    font-family: 'Sans-Serif-Bold';
+    src: url("../public/assets/fonts/Sans-Serif-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'PTSerif-Regular';
+    src: url("../public/assets/fonts/PTSerif-Regular.ttf");
+}

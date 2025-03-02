@@ -1,0 +1,89 @@
+<!-- top padding 5 -->
+
+
+<div class="Inter-font mt-xl-5 mt-lg-4 mt-3 px-lg-5 px-md-4 px-sm-5 px-4 mb-5">
+
+    <h2 class="DMSerif-Regular-font text-center text-size-16">Enter your contact details</h2>
+
+    <p class="text-size-9 mt-4">Include your full name and at least email or phone number.</p>
+
+    <div class="mt-4">
+        <label class="text-size-7 d-block mb-1" for="">First Name</label>
+        <input class="text-size-6 st-input w-100 py-1 px-2" type="text" name="firstName" id=""
+            [(ngModel)]="resumePersonalDetails.firstName">
+    </div>
+
+    <div class="mt-3">
+        <label class="text-size-7 d-block mb-1" for="">Last Name</label>
+        <input class="text-size-6 w-100 st-input py-1 px-2" type="text" name="lastName"
+            [(ngModel)]="resumePersonalDetails.lastName">
+    </div>
+
+    <div class="mt-5" *ngFor="let otherField of resumePersonalDetails.otherFields; let i = index;">
+
+        <div class="field-box-border-box-color px-4 pb-4" *ngIf="otherField.isLink">
+            <div class="text-end"><button class="st-icon bg-white ps-2 pt-2 mb-2" (click)="removeOtherField(i)"><img
+                        src="./assets/images/bin.png" alt=""></button></div>
+            <div class="d-flex justify-content-start align-items-center">
+                <label class="text-size-7 me-3 text-nowrap" for="">Label:</label>
+                <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="otherField.link.title">
+            </div>
+            <div class="d-flex justify-content-start align-items-center mt-3">
+                <label for="" class="text-size-7 me-3 text-nowrap">Link url:</label>
+                <input class="text-size-6 link-input st-input w-100 py-1 px-2" type="text"
+                    [(ngModel)]="otherField.link.link.linkUrl">
+            </div>
+            <div class="d-flex justify-content-start align-items-center mt-3"
+                *ngIf="linkText[i] || otherField.link.link.linkText; else showLinkTextButton;">
+                <label for="" class="text-size-7 me-3 text-nowrap">Link text:</label>
+                <input class="text-size-6 st-input w-100 py-1 px-2" type="text"
+                    [(ngModel)]="otherField.link.link.linkText">
+            </div>
+            <ng-template #showLinkTextButton>
+                <div class="text-end mt-3"><button class="text-size-5 change-link-button p-1"
+                        (click)="showLinkText(i)">Change link text</button></div>
+            </ng-template>
+
+        </div>
+
+        <div class="field-box-border-box-color px-4 pb-4" *ngIf="!otherField.isLink">
+            <div class="text-end"><button class="st-icon bg-white ps-2 pt-2 mb-2" (click)="removeOtherField(i)"><img
+                        src="./assets/images/bin.png" alt=""></button></div>
+
+            <div class="d-flex justify-content-start align-items-center">
+                <label for="" class="text-size-7 me-3 text-nowrap">Label:</label>
+                <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="otherField.text.title">
+            </div>
+
+            <div class="d-flex justify-content-start align-items-center mt-3">
+                <label for="" class="text-size-7 me-3 text-nowrap">Link text:</label>
+                <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="otherField.text.text">
+            </div>
+        </div>
+    </div>
+    <div class="text-end mt-1">
+        <button class="std-button py-lg-2 py-3 px-4 text-size-5 mt-3 ms-auto d-block" (click)="addField(true)">
+            <span class="d-flex justify-content-between align-items-center">
+                <span>Add Link Field&nbsp;&nbsp;</span>
+                <span class="d-flex align-items-center"><img class="" src="./assets/images/add.png" alt=""></span>
+            </span>
+        </button>
+        <button class="std-button py-lg-2 py-3 px-4 px-4 text-size-5 mt-3 ms-auto d-block" (click)="addField(false)">
+            <span class="d-flex justify-content-between align-items-center">
+                <span>Add Text Field&nbsp;&nbsp;</span>
+                <span class="d-flex align-items-center"><img src="./assets/images/add.png" alt=""></span>
+            </span>
+        </button>
+    </div>
+
+    <div class="mt-5">
+        <button class="std-button py-3 px-sm-5 px-4 text-size-5 ms-auto d-block">
+            <span class="d-flex justify-content-between align-items-center">
+                <span>Continue&nbsp;&nbsp;</span>
+                <span class="d-flex align-items-center"><img src="./assets/images/right-arrow.png" alt=""></span>
+            </span>
+        </button>
+    </div>
+    
+
+</div>

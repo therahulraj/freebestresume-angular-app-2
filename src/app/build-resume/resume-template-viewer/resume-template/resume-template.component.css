@@ -1,0 +1,109 @@
+/* don't use bootstrap classes for spacing as it depends on rem and rem depends on root html, 
+use bootstrap classes for structuring like - text-center, d-flex, justify-content */
+
+/* set base font size  in px, and use em in other places for font sizes */
+
+
+.resume-template {
+    padding: 0 10mm;
+    white-space: nowrap;
+    font-family: 'Georgia-regular';
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.georgia-bold {
+    font-family: 'Georgia-bold';
+    font-weight: 900;
+}
+
+.wrap {
+    white-space: wrap;
+}
+.c-mt-0 {
+    margin-top: 0px;
+}
+.c-mt-1 {
+    margin-top: 3px;
+}
+.c-mt-2 {
+    margin-top: 6px;
+}
+.c-mt-3 {
+    margin-top: 12px;
+}
+
+.c-mt-4 {
+    margin-top: 18px;
+}
+.c-mt-5 {
+    margin-top: 24px;
+}
+
+.rt-text-l {
+    font-size: 1.1em;
+}
+
+.rt-text-xl {
+    font-size: 1.3em;
+}
+
+.rt-text-2xl {
+    font-size: 1.5em;
+}
+
+.rt-text-3xl {
+    font-size: 1.8em;
+}
+
+.ls-xl {
+    letter-spacing: 0.6px;
+}
+
+.ls-2xl {
+    letter-spacing: 0.7px;
+}
+
+.ls-3xl {
+    letter-spacing: 0.8px;
+}
+
+.name {
+    font-size: 2.5em;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(40, 81, 143);
+}
+
+hr {
+    /* border: 0.8px solid #1a4cb2; */
+    border: none;
+    height: .6px;
+    /* background-color: #1a4cb2; */
+    background-color: #1a4cb2;
+    opacity: 100%;
+}
+
+
+.primary-theme-color {
+    color: #1a4cb2;
+}
+
+/* .dot {
+    font-size: 8px;
+} */
+
+
+/* @media screen and (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+} */
