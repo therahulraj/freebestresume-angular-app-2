@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { Resume } from '../model/resume.model';
 import { Personal } from '../model/personal.model';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
@@ -22,7 +22,38 @@ import { NgxPrintModule } from 'ngx-print';
   imports: [ResumeTemplateComponent, NgxPrintModule],
   styleUrls: ['./resume-template-viewer.component.css']
 })
-export class ResumeTemplateViewerComponent implements OnInit {
+export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('templateViewer') templateViewer: ElementRef | undefined;
+  showModal: boolean = false;
+  offsetWidth: number | undefined;
+  @Output() offsetWidthChanged = new EventEmitter<number>();
+
+
+  
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    if(this.templateViewer != null) {
+      console.log(this.templateViewer.nativeElement.offsetWidth, "offset width of templateViewer");
+      this.offsetWidth = this.templateViewer.nativeElement.offsetWidth;
+      this.offsetWidthChanged.emit(this.offsetWidth);
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if(this.templateViewer != null) {
+      this.offsetWidth = this.templateViewer.nativeElement.offsetWidth;
+      this.offsetWidthChanged.emit(this.offsetWidth);
+
+    }
+  }
+
+  showResumePreview() {
+    this.showModal = true;
+  }
+
+  
 
   demoContact: DemoContact = new DemoContact();
 //   resumeJson: string = `{
@@ -167,7 +198,7 @@ export class ResumeTemplateViewerComponent implements OnInit {
       this.resume.personal = this.personal;
       this.resume.educations = this.educations;
       
-      this.skills.generalGroup = ["Java", "MySQL", "Angular", "SpringBoot"];
+      // this.skills.generalGroup = [{"Java"}, "MySQL", "Angular", "SpringBoot"];
       this.skills.generalView = true;
       this.resume.skills = this.skills;
 

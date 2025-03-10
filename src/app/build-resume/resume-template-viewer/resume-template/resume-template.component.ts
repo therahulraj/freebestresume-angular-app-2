@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./resume-template.component.css']
 })
 export class ResumeTemplateComponent implements OnInit {
+    @Input() containerWidth: number | undefined;
     @Input() resume?: Resume;
     firstPrsent: boolean = false;
     secPresent: boolean = false;

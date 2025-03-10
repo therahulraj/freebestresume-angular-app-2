@@ -6,5 +6,5 @@ export class Experience {
     location?: string;
     startDate?: string;
     endDate?: string;
-    items: Item[] = [];
+    responsibilities: Item[] = [];
 }

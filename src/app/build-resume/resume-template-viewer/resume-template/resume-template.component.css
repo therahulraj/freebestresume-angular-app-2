@@ -12,6 +12,10 @@ use bootstrap classes for structuring like - text-center, d-flex, justify-conten
     letter-spacing: 0.5px;
 }
 
+.transform-style {
+    transform-origin: top;
+}
+
 .georgia-bold {
     font-family: 'Georgia-bold';
     font-weight: 900;

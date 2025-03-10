@@ -28,12 +28,12 @@ export class ExperienceDetailsComponent implements OnInit {
 
   addItem(experience: Experience) {
     let item = new Item();
-    experience.items.push(item);
+    experience.responsibilities.push(item);
   }
 
   removeItem(experience: Experience, index: number) {
-    if (index >= 0 && index < experience.items.length) {
-      experience.items.splice(index, 1);
+    if (index >= 0 && index < experience.responsibilities.length) {
+      experience.responsibilities.splice(index, 1);
     }
   }
 

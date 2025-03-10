@@ -61,7 +61,7 @@ export class ResumeDetailsService {
                     "location": "Kolkata, India",
                     "startDate": "21/02/2021",
                     "endDate": "27/05/2024",
-                    "items": [
+                    "responsibilities": [
                         {
                             "item": "laskjdf"
                         },
@@ -71,7 +71,17 @@ export class ResumeDetailsService {
                     ]
                 }
 
-        ]
+        ], "skills": {
+            "generalView": true,
+            "generalGroup": [
+                {
+                    "item": "java"
+                },  
+                {
+                    "item": "python"
+                }
+            ]
+        }
 }`;
 
     resume: Resume = new Resume();

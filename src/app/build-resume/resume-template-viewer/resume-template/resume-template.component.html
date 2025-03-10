@@ -1,4 +1,4 @@
-<div #myDiv class="resume-template print-mimic print-mimic" appSetScale>
+<div #myDiv class="resume-template print-mimic print-mimic mt-2" appSetScale [templateContainerWidth]="containerWidth" style="transform-origin: top;">
     <div class="demo-scale">
     
          <!-- firstName and lastName -->
@@ -104,7 +104,7 @@
                     <!-- <div *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])"> -->
                     <p class="rt-text-l" *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])">
                         <span *ngIf="isNotEmpty(experience?.startDate)">{{experience?.startDate}}</span>
-                        <span *ngIf="isAnyPresent([experience?.startDate, experience?.endDate])">&nbsp;-&nbsp;</span>
+                        <span *ngIf="isAllPresent([experience?.startDate, experience?.endDate])">&nbsp;-&nbsp;</span>
                         <span *ngIf="isNotEmpty(experience?.endDate)">{{experience?.endDate}}</span>
                     </p>
                     <!-- </div> -->
@@ -117,8 +117,8 @@
                 </h3>
                 
 
-                <div class="c-mt-2 wrap c-mt-2" *ngIf="isNotEmpty(experience?.items)">
-                    <div class="d-flex align-items-start c-mt-1 rt-text-l" *ngFor="let items of experience.items">
+                <div class="c-mt-2 wrap c-mt-2" *ngIf="isNotEmpty(experience?.responsibilities)">
+                    <div class="d-flex align-items-start c-mt-1 rt-text-l" *ngFor="let items of experience.responsibilities">
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                         <p>&#9679;</p>
                         <p>&nbsp;</p>
