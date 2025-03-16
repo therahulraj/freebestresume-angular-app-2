@@ -98,35 +98,39 @@
         <div class="c-mt-4" *ngIf="isNotEmpty(this.resumeDetails?.experiences)">
             <h2 class="rt-text-3xl ls-2xl primary-theme-color georgia-bold">{{this.resumeDetails.experienceSecTitle || 'Experience'}}</h2>
             <hr class="primary-theme-color c-mt-1">
-            <div class="c-mt-3" *ngFor="let experience of this.resumeDetails?.experiences">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2 *ngIf="isNotEmpty(experience?.jobTitle)" class="rt-text-2xl georgia-bold">{{experience?.jobTitle}}</h2>
-                    <!-- <div *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])"> -->
-                    <p class="rt-text-l" *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])">
-                        <span *ngIf="isNotEmpty(experience?.startDate)">{{experience?.startDate}}</span>
-                        <span *ngIf="isAllPresent([experience?.startDate, experience?.endDate])">&nbsp;-&nbsp;</span>
-                        <span *ngIf="isNotEmpty(experience?.endDate)">{{experience?.endDate}}</span>
-                    </p>
-                    <!-- </div> -->
-                </div>
-                
-                <h3 class="rt-text-xl c-mt-1" *ngIf="this.isAnyPresent([experience?.employer, experience?.location])">
-                    <span class="georgia-bold" *ngIf="isNotEmpty(experience?.employer)">{{experience?.employer}}</span>
-                    <span *ngIf="isAllPresent([experience?.employer, experience?.location])">,&nbsp;</span>
-                    <span *ngIf="isNotEmpty(experience?.location)">{{experience?.location}}</span>
-                </h3>
-                
-
-                <div class="c-mt-2 wrap c-mt-2" *ngIf="isNotEmpty(experience?.responsibilities)">
-                    <div class="d-flex align-items-start c-mt-1 rt-text-l" *ngFor="let items of experience.responsibilities">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                        <p>&#9679;</p>
-                        <p>&nbsp;</p>
-                        <p class="">{{items.item}}</p>
+            <ng-container *ngFor="let experience of this.resumeDetails?.experiences">
+                <ng-container *ngIf="isNotEmpty(experience)">
+                    <div class="c-mt-3" >
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2 *ngIf="isNotEmpty(experience?.jobTitle)" class="rt-text-2xl georgia-bold">{{experience?.jobTitle}}</h2>
+                            <!-- <div *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])"> -->
+                            <p class="rt-text-l" *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])">
+                                <span *ngIf="isNotEmpty(experience?.startDate)">{{experience?.startDate}}</span>
+                                <span *ngIf="isAllPresent([experience?.startDate, experience?.endDate])">&nbsp;-&nbsp;</span>
+                                <span *ngIf="isNotEmpty(experience?.endDate)">{{experience?.endDate}}</span>
+                            </p>
+                            <!-- </div> -->
+                        </div>
+                        
+                        <h3 class="rt-text-xl c-mt-1" *ngIf="this.isAnyPresent([experience?.employer, experience?.location])">
+                            <span class="georgia-bold" *ngIf="isNotEmpty(experience?.employer)">{{experience?.employer}}</span>
+                            <span *ngIf="isAllPresent([experience?.employer, experience?.location])">,&nbsp;</span>
+                            <span *ngIf="isNotEmpty(experience?.location)">{{experience?.location}}</span>
+                        </h3>
+                        
+        
+                        <div class="c-mt-2 wrap c-mt-2" *ngIf="isNotEmpty(experience?.responsibilities)">
+                            <div class="d-flex align-items-start c-mt-1 rt-text-l" *ngFor="let items of experience.responsibilities">
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                <p>&#9679;</p>
+                                <p>&nbsp;</p>
+                                <p class="">{{items.item}}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
+                </ng-container>
+                
+            </ng-container>
         </div>
 
 

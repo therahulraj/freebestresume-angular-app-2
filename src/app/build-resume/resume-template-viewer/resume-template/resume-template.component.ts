@@ -49,6 +49,58 @@ export class ResumeTemplateComponent implements OnInit {
     return !(value == null || value.length <= 0 || Object.keys(value).length == 0);
   }
 
+  isPrimitiveNotEmpty(value: any): boolean {
+    return !(value == null || value.length <= 0 || Object.keys(value).length == 0);
+  }
+
+  isNotEmpty1(value: any): boolean {
+    if (this.isPrimitive(value)) {
+      return this.isPrimitiveNotEmpty(value);
+    } else if (Array.isArray(value)) {
+      return this.isArrayNotEmpty(value);
+    }
+    return this.isObjectNotEmpty(value);
+  }
+
+  isPrimitive(value: any): boolean {
+    return (
+      typeof value === 'string' ||
+      typeof value === 'number' ||
+      typeof value === 'boolean' ||
+      typeof value === 'undefined' ||
+      typeof value === 'symbol' ||
+      typeof value === 'bigint' ||
+      value === null
+    );
+  }
+
+  isArrayNotEmpty(value: any): boolean {
+    for (let item of value) {
+      if (this.isPrimitive(item)) {
+        return this.isPrimitiveNotEmpty(item);
+      } else if (Array.isArray(item)) {
+        return this.isArrayNotEmpty(item);
+      }
+      return this.isObjectNotEmpty(item);
+    }
+    return false;
+  }
+  
+
+  isObjectNotEmpty(obj: any): boolean {
+    for(let key in obj) {
+      if (this.isPrimitive(obj[key])) {
+        return this.isPrimitiveNotEmpty(obj[key]);
+      } else if (Array.isArray(obj[key])) {
+        return this.isArrayNotEmpty(obj[key]);
+      }
+      return this.isObjectNotEmpty(obj[key]);
+    }
+    return false;
+  }
+
+
+
   isAnyPresent(values: any[]): boolean {
     if (this.isNotEmpty(values)) {
       for (let i = 0; i < values.length; i++) {

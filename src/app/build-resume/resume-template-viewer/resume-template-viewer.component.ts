@@ -27,8 +27,6 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
   @ViewChild('templateViewer') templateViewer: ElementRef | undefined;
   showModal: boolean = false;
   offsetWidth: number | undefined;
-  @Output() offsetWidthChanged = new EventEmitter<number>();
-
 
   
 
@@ -37,14 +35,13 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
     if(this.templateViewer != null) {
       console.log(this.templateViewer.nativeElement.offsetWidth, "offset width of templateViewer");
       this.offsetWidth = this.templateViewer.nativeElement.offsetWidth;
-      this.offsetWidthChanged.emit(this.offsetWidth);
+      
     }
   }
 
   ngAfterViewInit(): void {
     if(this.templateViewer != null) {
       this.offsetWidth = this.templateViewer.nativeElement.offsetWidth;
-      this.offsetWidthChanged.emit(this.offsetWidth);
 
     }
   }

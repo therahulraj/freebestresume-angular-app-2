@@ -21,9 +21,9 @@ export class SetScaleDirective {
     }
   }
 
-private setScale(scale: number) {
-  this.rederer.setStyle(this.elementRef.nativeElement, 'transform', `scale(${scale})`);
-}
+  private setScale(scale: number) {
+    this.rederer.setStyle(this.elementRef.nativeElement, 'transform', `scale(${scale})`);
+  }
 
 
 }

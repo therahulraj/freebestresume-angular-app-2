@@ -161,6 +161,13 @@
     width: 12px;
 }
 
+.bottom-right-fixed-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 10px 10px 0;
+}
+
 @media screen and (max-width: 1199.98px) {
     
 }

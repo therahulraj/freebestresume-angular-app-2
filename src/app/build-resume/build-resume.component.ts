@@ -4,10 +4,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ResumeTemplateViewerComponent } from './resume-template-viewer/resume-template-viewer.component';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FixBottomDirective } from './fix-bottom-directive';
 
 @Component({
   selector: 'app-build-resume',
-  imports: [RouterOutlet, SidebarComponent, ResumeTemplateViewerComponent, CommonModule],
+  imports: [RouterOutlet, SidebarComponent, ResumeTemplateViewerComponent, CommonModule, FixBottomDirective],
   templateUrl: './build-resume.component.html',
   styleUrl: './build-resume.component.css'
 
@@ -26,10 +27,6 @@ export class BuildResumeComponent implements AfterViewInit {
     if (!this.previewTemplateClicked) {
       this.previewTemplateClicked = true;
     }
-  }
-
-  templateContainerWidthChanged(width: number) {
-    console.log(width);
   }
 
   setTemplateModalView() {
