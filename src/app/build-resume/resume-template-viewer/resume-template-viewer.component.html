@@ -5,9 +5,8 @@
          <app-resume-template class="print-section" [containerWidth]="offsetWidth" [resume]="this.resume" style="display: flex; justify-content: center;"></app-resume-template>
     </div>
 
-    <button (click)="showResumePreview()">preview</button>
-
-    <button [closeWindow]="false"
+    <button class="std-button py-3 px-sm-5 px-4 text-size-5 bottom-left-fixed-button"
+            [closeWindow]="false"
             [useExistingCss]="true" 
             printSectionId="print-section" ngxPrint>print</button> 
     

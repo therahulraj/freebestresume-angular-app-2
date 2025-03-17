@@ -25,7 +25,6 @@ import { NgxPrintModule } from 'ngx-print';
 export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
 
   @ViewChild('templateViewer') templateViewer: ElementRef | undefined;
-  showModal: boolean = false;
   offsetWidth: number | undefined;
 
   
@@ -42,13 +41,10 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if(this.templateViewer != null) {
       this.offsetWidth = this.templateViewer.nativeElement.offsetWidth;
-
     }
   }
 
-  showResumePreview() {
-    this.showModal = true;
-  }
+  
 
   
 

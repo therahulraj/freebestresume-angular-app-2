@@ -8,7 +8,7 @@ import { FixBottomDirective } from './fix-bottom-directive';
 
 @Component({
   selector: 'app-build-resume',
-  imports: [RouterOutlet, SidebarComponent, ResumeTemplateViewerComponent, CommonModule, FixBottomDirective],
+  imports: [RouterOutlet, SidebarComponent, ResumeTemplateViewerComponent, CommonModule],
   templateUrl: './build-resume.component.html',
   styleUrl: './build-resume.component.css'
 
