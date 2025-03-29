@@ -3,15 +3,22 @@
 <div class="Inter-font mt-xl-5 mt-lg-4 mt-3 px-lg-5 px-md-4 px-sm-5 px-4 mb-5">
     <h2 class="DMSerif-Regular-font text-center text-size-16">Enter your skills</h2>
     <div>
-        <div class="field-box-border-box-color p-4">
 
-            
+        <label class="st-toggle-switch">
+            <input type="checkbox" [checked]="!this.skills.generalView" (change)="viewChanged($event)">
+            <span class="st-toggle-switch-slider st-toggle-switch-round"></span>
+        </label>
 
-            <div *ngFor="let skill of skills.generalGroup">
-                <input class="text-size-6 st-input w-50 py-1 px-2" type="text" [(ngModel)]="skill.item">
+        <!-- General view -->
+
+        <div class="field-box-border-box-color p-4 mt-4" *ngIf="this.skills?.generalView; else skillsGroupView">
+
+            <div class="d-flex flex-row st-input-button-grp justify-content-between align-items-center w-lg-50 mt-3" *ngFor="let skill of skills.generalGroup; let i = index;">
+                <input class="text-size-6 py-1 px-2 w-100" type="text" [(ngModel)]="skill.item">
+                <button class="st-icon d-block bg-white pe-2" (click)="removeGeneralGroupItem(i)"><img src="./assets/images/bin.png" alt=""></button>
             </div>
 
-            <button class="std-button py-lg-2 py-3 px-4 text-size-5 mt-3 ms-auto d-block">
+            <button class="std-button py-lg-2 py-3 px-4 text-size-5 mt-3 ms-auto d-block" (click)="addGeneralSkill()">
                 <span class="d-flex justify-content-between align-items-center">
                     <span>Add&nbsp;&nbsp;</span>
                     <span class="d-flex align-items-center"><img class="" src="./assets/images/add.png" alt=""></span>
@@ -19,5 +26,54 @@
             </button>
 
         </div>
+
+
+        <!-- Group view -->
+         <ng-template #skillsGroupView>
+            
+            <div class="field-box-border-box-color ps-4 pe-2 pb-2 mt-4" *ngFor="let skill of skills.skillsGroup; let skillGroupIndex = index;">
+
+                <div class="text-end">
+                    <button class="st-icon bg-white ps-2 mt-2 mb-3" (click)="removeSkillGroup(skillGroupIndex)"><img src="./assets/images/bin.png" alt=""></button>
+                </div>
+
+                <div class="d-flex justify-content-start align-items-center">
+                    <label class="text-size-7 me-3 text-nowrap" for="">Group Name:</label>
+                    <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="skill.groupName">
+                </div>
+
+        
+    
+                <div class="d-flex flex-row st-input-button-grp justify-content-between align-items-center w-lg-50 mt-3" *ngFor="let grpItem of skill.skills; let itemIndex = index;">
+                    <input class="text-size-6 py-1 px-2 w-100" type="text" [(ngModel)]="grpItem.item">
+                    <button class="st-icon d-block bg-white pe-2" (click)="removeSkillGroupItem(skillGroupIndex, itemIndex)"><img src="./assets/images/bin.png" alt=""></button>
+                </div>
+    
+                <button class="std-button py-lg-2 py-3 px-4 text-size-5 mt-3 ms-auto d-block" (click)="addSkillGroupItem(skillGroupIndex)">
+                    <span class="d-flex justify-content-between align-items-center">
+                        <span>Add Item&nbsp;&nbsp;</span>
+                        <span class="d-flex align-items-center"><img class="" src="./assets/images/add.png" alt=""></span>
+                    </span>
+                </button>
+    
+            </div>
+
+            <button class="std-button py-lg-2 py-3 px-4 px-4 text-size-5 mt-3 ms-auto d-block" (click)="addSkillGroup()">
+                <span class="d-flex justify-content-between align-items-center">
+                    <span>Add Group&nbsp;&nbsp;</span>
+                    <span class="d-flex align-items-center"><img src="./assets/images/add.png" alt=""></span>
+                </span>
+            </button>
+
+         </ng-template>
+
     </div>
+
+    <button class="std-button py-3 px-sm-5 px-4 mt-5 text-size-5 ms-auto d-block" (click)="goToNextSection()">
+        <span class="d-flex justify-content-between align-items-center">
+            <span>Next&nbsp;&nbsp;</span>
+            <span class="d-flex align-items-center"><img src="./assets/images/right-arrow.png" alt=""></span>
+        </span>
+    </button>
+
 </div>

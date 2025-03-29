@@ -7,6 +7,8 @@ export class Education {
     endDate?: string;
     grade?: string;
     gradeTitle?: string;
+
+    
     courses?: string[];
     coursesTitle?: string;
     achievements?: string[];

@@ -4,6 +4,7 @@ import { FormArray, FormControl, FormGroup, FormsModule } from '@angular/forms';
 import { Personal } from '../../model/personal.model';
 import { LinkText } from '../../model/link-text.model';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal-details',
@@ -18,7 +19,9 @@ export class PersonalDetailsComponent implements OnInit {
   firstName: string = "";
   linkText: Array<boolean> = [];
 
-  constructor(private resumeDetailsService: ResumeDetailsService) { }
+  constructor(private resumeDetailsService: ResumeDetailsService, 
+    private router: Router, 
+    private route: ActivatedRoute) { }
   personalDetailsForm: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
@@ -32,7 +35,6 @@ export class PersonalDetailsComponent implements OnInit {
       'firstName': new FormControl(this.resumePersonalDetails?.firstName),
       'lastName': new FormControl(this.resumePersonalDetails?.lastName),
       'otherFields': new FormArray([])
-      
     })
 
     if (this.resumeDetailsService.isNotEmpty(this.resumeDetailsService.resume)) {
@@ -44,6 +46,10 @@ export class PersonalDetailsComponent implements OnInit {
 
   isNullOrUndefined(value: any): boolean {
     return value == null;
+  }
+
+  goToNextSection() {
+    this.router.navigate(['../experience-details'], {relativeTo: this.route})
   }
 
 

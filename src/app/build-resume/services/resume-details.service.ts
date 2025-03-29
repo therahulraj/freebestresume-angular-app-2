@@ -71,17 +71,40 @@ export class ResumeDetailsService {
                     ]
                 }
 
-        ], "skills": {
-            "generalView": true,
-            "generalGroup": [
-                {
-                    "item": "java"
-                },  
-                {
-                    "item": "python"
-                }
-            ]
-        }
+        ],
+    "skills": {
+        "generalView": true,
+        "generalGroup": [
+            {
+                "item": "java"
+            },
+            {
+                "item": "python"
+            }
+        ],
+        "skillsGroup": [
+            {
+                "groupName": "Language",
+                "skills": [
+                    {
+                        "item": "java"
+                    },
+                    {
+                        "item": "python"
+                    }
+                ]
+            }
+        ]
+    }, "educations": [{
+        "instName": "Oriental Institute of Science and Technology",
+        "instLocation": "Bhopal, MP",
+        "degreeName": "Bachelor of Engineering",
+        "fieldOfStudy": "Electronics and Communication Engineering",
+        "startDate": "2016",
+        "endDate": "2020",
+        "grade": "7.6 CGPA"
+        
+    }]
 }`;
 
     resume: Resume = new Resume();

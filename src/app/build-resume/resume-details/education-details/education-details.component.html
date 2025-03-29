@@ -1,0 +1,55 @@
+<div class="Inter-font mt-xl-5 mt-lg-4 mt-3 px-lg-5 px-md-4 px-sm-5 px-4 mb-5">
+    <h2 class="DMSerif-Regular-font text-center text-size-16">Enter your education details</h2>
+    <div class="field-box-border-box-color pt-4 px-4 pb-4 mt-5" *ngFor="let education of educations; let i = index;">
+
+        <button class="st-icon d-block bg-white ms-auto mb-2" (click)="removeEducation(i)"><img src="./assets/images/bin.png" alt=""></button>
+
+
+
+        <div class="d-flex justify-content-start align-items-center">
+            <label class="text-size-7 me-3 text-nowrap" for="">Institute Title:</label>
+            <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="education.instName">
+        </div>
+
+        <div class="d-flex justify-content-start align-items-center mt-3">
+            <label class="text-size-7 me-3 text-nowrap" for="">Institute Location:</label>
+            <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="education.instLocation">
+        </div>
+
+        <div class="d-flex justify-content-start align-items-center mt-3">
+            <label class="text-size-7 me-3 text-nowrap" for="">Degree:</label>
+            <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="education.degreeName">
+        </div>
+
+        <div class="d-flex justify-content-start align-items-center mt-3">
+            <label class="text-size-7 me-3 text-nowrap" for="">Field Of Study:</label>
+            <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="education.fieldOfStudy">
+        </div>
+
+        <div class="mt-3 d-xl-flex">
+            <div class="d-flex justify-content-start align-items-center me-xl-3">
+                <label class="text-size-7 me-2 text-nowrap" for="">Start Date:</label>
+                <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="education.startDate">
+            </div>
+
+            <div class="d-flex justify-content-start align-items-center mt-xl-0 mt-3">
+                <label class="text-size-7 me-2 text-nowrap" for="">End Date:</label>
+                <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="education.endDate">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-start align-items-center mt-3">
+            <label class="text-size-7 me-3 text-nowrap" for="">Grade:</label>
+            <input class="text-size-6 st-input w-100 py-1 px-2" type="text" [(ngModel)]="education.grade">
+        </div>
+    
+    </div>
+
+    <button class="std-button py-lg-2 py-3 px-4 px-4 text-size-5 mt-3 ms-auto d-block" (click)="addEducation()">
+        <span class="d-flex justify-content-between align-items-center">
+            <span>Add Education&nbsp;&nbsp;</span>
+            <span class="d-flex align-items-center"><img src="./assets/images/add.png" alt=""></span>
+        </span>
+    </button>
+
+</div>

@@ -4,31 +4,31 @@
          <!-- firstName and lastName -->
         <h1 class="text-center name ls-3xl" *ngIf="isAnyPresent([this.resumeDetails.personal?.firstName, this.resumeDetails.personal?.lastName])">
             <!-- this is hooked -->
-            <span *ngIf="isNotEmpty(this.resumeDetails.personal?.firstName)">{{this.resumeDetails.personal?.firstName}}</span>
-            <span *ngIf="isAllPresent([this.resumeDetails.personal?.firstName, this.resumeDetails.personal?.lastName])">&nbsp;</span>
-            <span *ngIf="isNotEmpty(this.resume?.personal?.lastName)">{{this.resumeDetails.personal?.lastName}}</span>
+            <span *ngIf="isPrimitiveNotEmpty(this.resumeDetails.personal?.firstName)">{{this.resumeDetails.personal?.firstName}}</span>
+            <span *ngIf="isPrimitiveAllPresent([this.resumeDetails.personal?.firstName, this.resumeDetails.personal?.lastName])">&nbsp;</span>
+            <span *ngIf="isPrimitiveNotEmpty(this.resume?.personal?.lastName)">{{this.resumeDetails.personal?.lastName}}</span>
         </h1>
 
         <!-- main personal details -->
-        <div class="" >
+        <ng-container *ngIf="isNotEmpty(this.resumeDetails.personal?.otherFields)">
             <!-- *ngIf="isNotEmpty(this.resume?.personal?.otherFields)" -->
-            <div class="rt-text-l ls-xl text-center c-mt-2" *ngIf="isNotEmpty(this.resumeDetails.personal?.otherFields)">
+            <div class="rt-text-l ls-xl text-center c-mt-2">
                 <p>
                     <ng-container *ngFor="let otherField of this.resumeDetails.personal?.otherFields; let i = index;">
                         <ng-container *ngIf="i < 3">
                             <ng-container *ngIf="otherField.isLink">
-                                <ng-container *ngIf="isNotEmpty(otherField.link?.link?.linkUrl)">
+                                <ng-container *ngIf="isPrimitiveNotEmpty(otherField.link?.link?.linkUrl)">
                                     <span>
                                         <span *ngIf="i > 0">&nbsp;&#9679;&nbsp;</span>
-                                        <span *ngIf="isNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkText}}</a></span>
-                                        <span *ngIf="!isNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkUrl}}</a></span>
+                                        <span *ngIf="isPrimitiveNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkText}}</a></span>
+                                        <span *ngIf="!isPrimitiveNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkUrl}}</a></span>
                                         <span></span>
                                     </span>
                                 </ng-container>
                             </ng-container>
                             
                             <ng-container *ngIf="!otherField.isLink">
-                                <ng-container *ngIf="isNotEmpty(otherField.text?.text)">
+                                <ng-container *ngIf="isPrimitiveNotEmpty(otherField.text?.text)">
                                     <span>
                                         <span *ngIf="i > 0">&nbsp;&#9679;&nbsp;</span>
                                         <span>{{otherField.text.text}}</span>
@@ -42,20 +42,20 @@
                     <ng-container *ngFor="let otherField of this.resumeDetails.personal?.otherFields; let i = index;">
                         <ng-container *ngIf="i >= 3 && i < 5">
                             <ng-container *ngIf="otherField.isLink">
-                                <ng-container *ngIf="isNotEmpty(otherField.link?.link?.linkUrl)">
+                                <ng-container *ngIf="isPrimitiveNotEmpty(otherField.link?.link?.linkUrl)">
                                     <span>
                                         <span *ngIf="i > 3">&nbsp;&#9679;&nbsp;</span>
-                                        <span *ngIf="isNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkText}}</a></span>
-                                        <span *ngIf="!isNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkUrl}}</a></span>
+                                        <span *ngIf="isPrimitiveNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkText}}</a></span>
+                                        <span *ngIf="!isPrimitiveNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkUrl}}</a></span>
                                         <span></span>
                                     </span>
                                 </ng-container>
                             </ng-container>
                             
                             <ng-container *ngIf="!otherField.isLink">
-                                <ng-container *ngIf="isNotEmpty(otherField.text?.text)">
+                                <ng-container *ngIf="isPrimitiveNotEmpty(otherField.text?.text)">
                                     <span>
-                                        <span *ngIf="i > 0">&nbsp;&#9679;&nbsp;</span>
+                                        <span *ngIf="i > 3">&nbsp;&#9679;&nbsp;</span>
                                         <span>{{otherField.text.text}}</span>
                                     </span>
                                 </ng-container>
@@ -68,18 +68,18 @@
                     <ng-container *ngFor="let otherField of this.resumeDetails.personal?.otherFields; let i = index;">
                         <ng-container *ngIf="i >= 5 && i < 7">
                             <ng-container *ngIf="otherField.isLink">
-                                <ng-container *ngIf="isNotEmpty(otherField.link?.link?.linkUrl)">
+                                <ng-container *ngIf="isPrimitiveNotEmpty(otherField.link?.link?.linkUrl)">
                                     <span>
                                         <span *ngIf="i > 5">&nbsp;&#9679;&nbsp;</span>
-                                        <span *ngIf="isNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkText}}</a></span>
-                                        <span *ngIf="!isNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkUrl}}</a></span>
+                                        <span *ngIf="isPrimitiveNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkText}}</a></span>
+                                        <span *ngIf="!isPrimitiveNotEmpty(otherField.link?.link?.linkText)"><a [href]="otherField.link.link.linkUrl">{{otherField.link.link.linkUrl}}</a></span>
                                         <span></span>
                                     </span>
                                 </ng-container>
                             </ng-container>
                             
                             <ng-container *ngIf="!otherField.isLink">
-                                <ng-container *ngIf="isNotEmpty(otherField.text?.text)">
+                                <ng-container *ngIf="isPrimitiveNotEmpty(otherField.text?.text)">
                                     <span>
                                         <span *ngIf="i > 0">&nbsp;&#9679;&nbsp;</span>
                                         <span>{{otherField.text.text}}</span>
@@ -92,40 +92,46 @@
 
             </div>
 
-        </div>
+        </ng-container>
 
 
-        <div class="c-mt-4" *ngIf="isNotEmpty(this.resumeDetails?.experiences)">
+        <!-- Experience section -->
+        <div class="c-mt-4" *ngIf="isObjectNotEmpty(this.resumeDetails?.experiences)">
             <h2 class="rt-text-3xl ls-2xl primary-theme-color georgia-bold">{{this.resumeDetails.experienceSecTitle || 'Experience'}}</h2>
             <hr class="primary-theme-color c-mt-1">
             <ng-container *ngFor="let experience of this.resumeDetails?.experiences">
-                <ng-container *ngIf="isNotEmpty(experience)">
+                <ng-container *ngIf="isObjectNotEmpty(experience)">
                     <div class="c-mt-3" >
                         <div class="d-flex justify-content-between align-items-center">
-                            <h2 *ngIf="isNotEmpty(experience?.jobTitle)" class="rt-text-2xl georgia-bold">{{experience?.jobTitle}}</h2>
+                            <h2 *ngIf="isPrimitiveNotEmpty(experience?.jobTitle)" class="rt-text-2xl georgia-bold">{{experience?.jobTitle}}</h2>
                             <!-- <div *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])"> -->
-                            <p class="rt-text-l" *ngIf="this.isAnyPresent([experience?.startDate, experience?.endDate])">
-                                <span *ngIf="isNotEmpty(experience?.startDate)">{{experience?.startDate}}</span>
-                                <span *ngIf="isAllPresent([experience?.startDate, experience?.endDate])">&nbsp;-&nbsp;</span>
-                                <span *ngIf="isNotEmpty(experience?.endDate)">{{experience?.endDate}}</span>
+                            <p class="rt-text-l" *ngIf="this.isPrimitiveAllPresent([experience?.startDate, experience?.endDate])">
+                                <span *ngIf="isPrimitiveNotEmpty(experience?.startDate)">{{experience?.startDate}}</span>
+                                <span *ngIf="isPrimitiveAllPresent([experience?.startDate, experience?.endDate])">&nbsp;-&nbsp;</span>
+                                <span *ngIf="isPrimitiveNotEmpty(experience?.endDate)">{{experience?.endDate}}</span>
                             </p>
                             <!-- </div> -->
                         </div>
                         
-                        <h3 class="rt-text-xl c-mt-1" *ngIf="this.isAnyPresent([experience?.employer, experience?.location])">
-                            <span class="georgia-bold" *ngIf="isNotEmpty(experience?.employer)">{{experience?.employer}}</span>
-                            <span *ngIf="isAllPresent([experience?.employer, experience?.location])">,&nbsp;</span>
-                            <span *ngIf="isNotEmpty(experience?.location)">{{experience?.location}}</span>
+                        <h3 class="rt-text-xl c-mt-1" *ngIf="this.isPrimitiveAnyPresent([experience?.employer, experience?.location])">
+                            <span class="georgia-bold" *ngIf="isPrimitiveNotEmpty(experience?.employer)">{{experience?.employer}}</span>
+                            <span *ngIf="isPrimitiveAllPresent([experience?.employer, experience?.location])">,&nbsp;</span>
+                            <span *ngIf="isPrimitiveNotEmpty(experience?.location)">{{experience?.location}}</span>
                         </h3>
                         
         
-                        <div class="c-mt-2 wrap c-mt-2" *ngIf="isNotEmpty(experience?.responsibilities)">
-                            <div class="d-flex align-items-start c-mt-1 rt-text-l" *ngFor="let items of experience.responsibilities">
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                                <p>&#9679;</p>
-                                <p>&nbsp;</p>
-                                <p class="">{{items.item}}</p>
-                            </div>
+                        <div class="c-mt-2 wrap c-mt-2" *ngIf="this.isArrayNotEmpty(experience?.responsibilities)">
+                            <ng-container *ngFor="let items of experience.responsibilities">
+                                <ng-container *ngIf="isPrimitiveNotEmpty(items.item)">
+                                    <div class="d-flex align-items-start c-mt-1 rt-text-l">
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                        <p>&#9679;</p>
+                                        <p>&nbsp;</p>
+                                        <p class="">{{items.item}}</p>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                            
                         </div>
                     </div>
                 </ng-container>
@@ -135,83 +141,104 @@
 
 
 
-        <!-- Experience section -->
+        
         
 
         <!-- Education section -->
-        <div class="c-mt-4" *ngIf="isNotEmpty(this.resume?.educations)">
-            <h2 class="rt-text-3xl ls-2l primary-theme-color georgia-bold">{{this.resume?.experienceSecTitle || 'Education'}}</h2>
+        <div class="c-mt-4" *ngIf="isObjectNotEmpty(this.resumeDetails?.educations)">
+            <h2 class="rt-text-3xl ls-2l primary-theme-color georgia-bold">{{this.resumeDetails.experienceSecTitle || 'Education'}}</h2>
             <hr class="primary-theme-color c-mt-1">
-            <div class="c-mt-3" *ngFor="let education of this.resume?.educations">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h3 class="rt-text-xl georgia-bold wrap" *ngIf="isAnyPresent([education?.degreeName, education?.fieldOfStudy])">
-                        <span *ngIf="isNotEmpty(education?.degreeName)">{{education?.degreeName}}</span>
-                        <span *ngIf="isAllPresent([education?.degreeName, education?.fieldOfStudy])">,&nbsp;</span>
-                        <span *ngIf="isNotEmpty(education?.fieldOfStudy)">{{education?.fieldOfStudy}}</span>
-                    </h3>
-                    <p class="rt-text-l" *ngIf="isAnyPresent([education?.startDate, education?.endDate])">
-                        <span *ngIf="isNotEmpty(education?.startDate)">{{education?.startDate}}</span>
-                        <span *ngIf="isAllPresent([education?.startDate, education?.endDate])">&nbsp;-&nbsp;</span>
-                        <span *ngIf="isNotEmpty(education?.endDate)">{{education?.endDate}}</span>
-                    </p>
-                </div>
-                <h4 class="c-mt-1 rt-text-xl" *ngIf="isAllPresent([education?.instName, education?.instLocation])">
-                    <span *ngIf="isNotEmpty(education?.instName)">{{education?.instName}}</span>
-                    <span *ngIf="isAllPresent([education?.instName, education?.instLocation])">,&nbsp;</span>
-                    <span *ngIf="isNotEmpty(education?.instLocation)">{{education?.instLocation}}</span>
-                </h4>
-                <p class="c-mt-1 rt-text-l" *ngIf="isNotEmpty(education?.grade)"><span>{{education?.gradeTitle || 'Grade'}}:&nbsp;{{education?.grade}}</span></p>
-                <div *ngIf="isNotEmpty(education?.courses)">
-                    <h4 class="rt-text-l c-mt-1 georgia-bold">{{education?.coursesTitle || 'Courses'}}</h4>
-                    <div class="rt-text-l c-mt-1 d-flex align-items-start" *ngFor="let course of education?.courses">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                        <p>&#9679;</p>
-                        <p>&nbsp;</p>
-                        <p class="">{{course}}</p>
+            <ng-container *ngFor="let education of this.resumeDetails?.educations">
+                <ng-container *ngIf="isObjectNotEmpty(education)">
+                    <div class="c-mt-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="rt-text-xl georgia-bold wrap" *ngIf="isPrimitiveAnyPresent([education?.degreeName, education?.fieldOfStudy])">
+                                <span *ngIf="isPrimitiveNotEmpty(education?.degreeName)">{{education?.degreeName}}</span>
+                                <span *ngIf="isPrimitiveAllPresent([education?.degreeName, education?.fieldOfStudy])">,&nbsp;</span>
+                                <span *ngIf="isPrimitiveNotEmpty(education?.fieldOfStudy)">{{education?.fieldOfStudy}}</span>
+                            </h3>
+                            <p class="rt-text-l" *ngIf="isPrimitiveAnyPresent([education?.startDate, education?.endDate])">
+                                <span *ngIf="isPrimitiveNotEmpty(education?.startDate)">{{education?.startDate}}</span>
+                                <span *ngIf="isPrimitiveAllPresent([education?.startDate, education?.endDate])">&nbsp;-&nbsp;</span>
+                                <span *ngIf="isPrimitiveNotEmpty(education?.endDate)">{{education?.endDate}}</span>
+                            </p>
+                        </div>
+                        <h4 class="c-mt-1 rt-text-xl" *ngIf="isPrimitiveAnyPresent([education?.instName, education?.instLocation])">
+                            <span *ngIf="isPrimitiveNotEmpty(education?.instName)">{{education?.instName}}</span>
+                            <span *ngIf="isPrimitiveAllPresent([education?.instName, education?.instLocation])">,&nbsp;</span>
+                            <span *ngIf="isPrimitiveNotEmpty(education?.instLocation)">{{education?.instLocation}}</span>
+                        </h4>
+                        <p class="c-mt-1 rt-text-l" *ngIf="isPrimitiveNotEmpty(education?.grade)"><span>{{education?.gradeTitle || 'Grade'}}:&nbsp;{{education?.grade}}</span></p>
+                        <!-- <div *ngIf="isNotEmpty(education?.courses)">
+                            <h4 class="rt-text-l c-mt-1 georgia-bold">{{education?.coursesTitle || 'Courses'}}</h4>
+                            <div class="rt-text-l c-mt-1 d-flex align-items-start" *ngFor="let course of education?.courses">
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                <p>&#9679;</p>
+                                <p>&nbsp;</p>
+                                <p class="">{{course}}</p>
+                            </div>
+                        </div>
+        
+                        <div *ngIf="isNotEmpty(education?.achievements)">
+                            <h4 class="rt-text-l c-mt-1 georgia-bold">{{education?.achievementsTitle || 'Achievements'}}</h4>
+                            <div class="rt-text-l c-mt-1 d-flex align-items-start" *ngFor="let achievement of education?.achievements">
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                <p>&#9679;</p>
+                                <p>&nbsp;</p>
+                                <p class="">{{achievement}}</p>
+                            </div>
+                        </div> -->
                     </div>
-                </div>
-
-                <div *ngIf="isNotEmpty(education?.achievements)">
-                    <h4 class="rt-text-l c-mt-1 georgia-bold">{{education?.achievementsTitle || 'Achievements'}}</h4>
-                    <div class="rt-text-l c-mt-1 d-flex align-items-start" *ngFor="let achievement of education?.achievements">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                        <p>&#9679;</p>
-                        <p>&nbsp;</p>
-                        <p class="">{{achievement}}</p>
-                    </div>
-                </div>
-            </div>
+                </ng-container>
+            </ng-container>
+            
         </div>
 
 
         <!-- skills -->
-        <div class="c-mt-4" *ngIf="isNotEmpty(this.resume?.skills)">
+        <div class="c-mt-4" *ngIf="isObjectNotEmpty(this.resumeDetails?.skills)">
             <h2 class="rt-text-3xl ls-2xl primary-theme-color georgia-bold">{{this.resume?.skillsSecTitle || 'Skills'}}</h2>
             <hr class="primary-theme-color c-mt-1">
-            <div class="c-mt-3" *ngIf="this.resume?.skills?.generalView; else skillsGroupView">
-                <div class="d-flex align-items-start c-mt-1 rt-text-l" *ngFor="let skill of this.resume?.skills?.generalGroup">
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p>&#9679;</p>
-                    <p>&nbsp;</p>
-                    <p class="">{{skill}}</p>
-                </div>
+            <div class="c-mt-3" *ngIf="this.resumeDetails?.skills?.generalView; else skillsGroupView">
+                <ng-container *ngIf="isArrayNotEmpty(this.resumeDetails.skills?.generalGroup)">
+                    <ng-container *ngFor="let skill of this.resumeDetails?.skills?.generalGroup">
+                        <ng-container *ngIf="isPrimitiveNotEmpty(skill.item)">
+                            <div class="d-flex align-items-start c-mt-1 rt-text-l" >
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                <p>&#9679;</p>
+                                <p>&nbsp;</p>
+                                <p>{{skill.item}}</p>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
             </div>
+
 
             <ng-template #skillsGroupView>
                 <div class="c-mt-3">
-                    <div class="d-flex align-items-start c-mt-1 rt-text-l" *ngFor="let skillsGroup of this.resume?.skills?.skillsGroup">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                        <p>&#9679;</p>
-                        <p>&nbsp;</p>
-                        <p class="">
-                            <span class="georgia-bold" *ngIf="skillsGroup?.groupName">{{skillsGroup?.groupName}}</span>
-                            <span *ngIf="isAllPresent([skillsGroup?.groupName, skillsGroup?.skills])">:&nbsp;</span>
-                            <span *ngFor="let skill of skillsGroup?.skills; let i = index">
-                                <span *ngIf="i != 0">,&nbsp;</span>
-                                <span>{{skill}}</span>
-                            </span>
-                        </p>
-                    </div>
+                    <ng-container *ngFor="let skillsGroup of this.resumeDetails?.skills?.skillsGroup">
+                        <ng-container *ngIf="isObjectNotEmpty(skillsGroup)">
+                            <div class="d-flex align-items-start c-mt-1 rt-text-l" >
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                <p>&#9679;</p>
+                                <p>&nbsp;</p>
+                                <p class="">
+                                    <span class="georgia-bold" *ngIf="isPrimitiveNotEmpty(skillsGroup?.groupName)">{{skillsGroup?.groupName}}</span>
+                                    <span *ngIf="isPrimitiveNotEmpty(skillsGroup?.groupName) && isArrayNotEmpty(skillsGroup?.skills)">:&nbsp;</span>
+                                    <ng-container *ngFor="let skill of skillsGroup?.skills; let i = index">
+                                        <span>
+                                            <span *ngIf="i != 0 && isPrimitiveNotEmpty(skill.item)">,&nbsp;</span>
+                                            <span *ngIf="isPrimitiveNotEmpty(skill.item)">{{skill.item}}</span>
+                                        </span>
+                                    </ng-container>
+                                    
+                                </p>
+                            </div>
+                        </ng-container>
+                        
+                    </ng-container>
+                    
                 </div>
 
             </ng-template>

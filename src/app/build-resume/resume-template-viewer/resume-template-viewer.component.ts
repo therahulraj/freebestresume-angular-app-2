@@ -140,7 +140,7 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
   //   this.doc.body.appendChild(this.compRef.location.nativeElement);
   // }
 
-  constructor(private vcRef: ViewContainerRef, private resolver: ComponentFactoryResolver) {
+  constructor(private vcRef: ViewContainerRef) {
     
       this.personal.firstName = "Rahul";
       this.personal.lastName = "Raj";
@@ -192,15 +192,15 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
       this.resume.educations = this.educations;
       
       // this.skills.generalGroup = [{"Java"}, "MySQL", "Angular", "SpringBoot"];
-      this.skills.generalView = true;
-      this.resume.skills = this.skills;
+      // this.skills.generalView = true;
+      // this.resume.skills = this.skills;
 
-      this.skills.generalView = false;
-      this.skillsGroup1.groupName = 'Language';
-      this.skillsGroup1.skills = ["python", "java"];
-      this.skillsGroup2.groupName = 'Tools';
-      this.skillsGroup2.skills = ["jira"];
-      this.skills.skillsGroup = [this.skillsGroup1, this.skillsGroup2];
+      // this.skills.generalView = false;
+      // this.skillsGroup1.groupName = 'Language';
+      // this.skillsGroup1.skills = ["python", "java"];
+      // this.skillsGroup2.groupName = 'Tools';
+      // this.skillsGroup2.skills = ["jira"];
+      // this.skills.skillsGroup = [this.skillsGroup1, this.skillsGroup2];
 
       // this.titleValue1.title = 'Github';
       // this.titleValue1.value = 'https://github.com/janesmith/task-platform';
