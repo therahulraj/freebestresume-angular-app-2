@@ -11,10 +11,11 @@
 
         <!-- here top padding 5 and x axis 3 -->
         <div class="col-12 col-md-6 scrollable-section" style="background-color: rgb(245, 247, 248);">
-            <router-outlet></router-outlet>
-            <button *ngIf="viewTemplateModal" class="std-button py-3 px-sm-5 px-4 text-size-5 ms-auto d-block bottom-right-fixed-button" (click)="previewTemplate()">
+            <button *ngIf="templateModalView" class="std-button py-3 px-sm-5 px-4 text-size-5 ms-auto d-block bottom-right-fixed-button" (click)="previewTemplate()">
                 <span>Preview</span>
             </button>
+            <router-outlet></router-outlet>
+            
         </div>
 
         <!-- <div class="col-12 col-md-7"></div> -->
@@ -25,16 +26,19 @@
 
         
         <div class="col-12 col-md-5 scrollable-section bg-white" 
-        [class]="{'resume-template-modal': viewTemplateModal && previewTemplateClicked}" 
-        [style]="{'display': !viewTemplateModal || (viewTemplateModal && previewTemplateClicked) ? 'block' : 'none'}">
-        <div class="text-end" *ngIf="viewTemplateModal">
+        [class]="{'resume-template-modal': templateModalView && previewTemplateClicked}" 
+        [style]="{'display': !templateModalView || (templateModalView && previewTemplateClicked) ? 'block' : 'none'}">
+        <div class="text-end" *ngIf="templateModalView">
         <button class="st-icon-bigger bg-white p-2 me-2 my-2" (click)="closeTemplateCliecked()">
             <img src="./assets/images/close.png" alt="">
         </button>
         </div>
             <app-resume-template-viewer></app-resume-template-viewer>
-        </div>
+
+        </div> 
 
         <!-- <div class="col-0 col-md-4"></div> -->
     </div>
 </div>
+
+<app-popup-modal></app-popup-modal>

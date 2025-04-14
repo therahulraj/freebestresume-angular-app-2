@@ -1,8 +1,7 @@
-<div #myDiv class="resume-template print-mimic print-mimic mt-2" appSetScale [templateContainerWidth]="containerWidth" style="transform-origin: top;">
+<div #myDiv class="resume-template print-mimic print-mimic mt-2" >
     <div class="demo-scale">
-    
          <!-- firstName and lastName -->
-        <h1 class="text-center name ls-3xl" *ngIf="isAnyPresent([this.resumeDetails.personal?.firstName, this.resumeDetails.personal?.lastName])">
+        <h1 class="text-center name ls-3xl overflow-hidden" *ngIf="isPrimitiveAnyPresent([this.resumeDetails.personal?.firstName, this.resumeDetails.personal?.lastName])">
             <!-- this is hooked -->
             <span *ngIf="isPrimitiveNotEmpty(this.resumeDetails.personal?.firstName)">{{this.resumeDetails.personal?.firstName}}</span>
             <span *ngIf="isPrimitiveAllPresent([this.resumeDetails.personal?.firstName, this.resumeDetails.personal?.lastName])">&nbsp;</span>
@@ -12,7 +11,7 @@
         <!-- main personal details -->
         <ng-container *ngIf="isNotEmpty(this.resumeDetails.personal?.otherFields)">
             <!-- *ngIf="isNotEmpty(this.resume?.personal?.otherFields)" -->
-            <div class="rt-text-l ls-xl text-center c-mt-2">
+            <div class="rt-text-l ls-xl text-center c-mt-2 overflow-hidden">
                 <p>
                     <ng-container *ngFor="let otherField of this.resumeDetails.personal?.otherFields; let i = index;">
                         <ng-container *ngIf="i < 3">
@@ -96,7 +95,7 @@
 
 
         <!-- Experience section -->
-        <div class="c-mt-4" *ngIf="isObjectNotEmpty(this.resumeDetails?.experiences)">
+        <div class="c-mt-4 overflow-hidden" *ngIf="isObjectNotEmpty(this.resumeDetails?.experiences)">
             <h2 class="rt-text-3xl ls-2xl primary-theme-color georgia-bold">{{this.resumeDetails.experienceSecTitle || 'Experience'}}</h2>
             <hr class="primary-theme-color c-mt-1">
             <ng-container *ngFor="let experience of this.resumeDetails?.experiences">
@@ -145,7 +144,7 @@
         
 
         <!-- Education section -->
-        <div class="c-mt-4" *ngIf="isObjectNotEmpty(this.resumeDetails?.educations)">
+        <div class="c-mt-4 overflow-hidden" *ngIf="isObjectNotEmpty(this.resumeDetails?.educations)">
             <h2 class="rt-text-3xl ls-2l primary-theme-color georgia-bold">{{this.resumeDetails.experienceSecTitle || 'Education'}}</h2>
             <hr class="primary-theme-color c-mt-1">
             <ng-container *ngFor="let education of this.resumeDetails?.educations">
@@ -196,7 +195,7 @@
 
 
         <!-- skills -->
-        <div class="c-mt-4" *ngIf="isObjectNotEmpty(this.resumeDetails?.skills)">
+        <div class="c-mt-4 overflow-hidden" *ngIf="isObjectNotEmpty(this.resumeDetails?.skills)">
             <h2 class="rt-text-3xl ls-2xl primary-theme-color georgia-bold">{{this.resume?.skillsSecTitle || 'Skills'}}</h2>
             <hr class="primary-theme-color c-mt-1">
             <div class="c-mt-3" *ngIf="this.resumeDetails?.skills?.generalView; else skillsGroupView">
@@ -248,7 +247,7 @@
         </div>
 
         <!-- project -->
-            <div class="c-mt-4" *ngIf="isNotEmpty(this.resume?.projects)">
+            <div class="c-mt-4 overflow-hidden" *ngIf="isNotEmpty(this.resume?.projects)">
             <h2 class="rt-text-3xl ls-2xl primary-theme-color georgia-bold">{{this.resume?.projectSecTitle || 'Projects'}}</h2>
             <hr class="primary-theme-color c-mt-1">
             <div class="c-mt-3" *ngFor="let project of this.resume?.projects">

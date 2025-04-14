@@ -3,6 +3,7 @@ import { Resume } from "../model/resume.model";
 
 @Injectable({providedIn: 'root'})
 export class ResumeDetailsService {
+    emptyExperienceSection: boolean = true;
     resumeJson: string = `{
     "personal": {
         "firstName": "Rahul",

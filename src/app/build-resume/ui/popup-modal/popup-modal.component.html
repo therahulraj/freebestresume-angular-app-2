@@ -1,0 +1,17 @@
+<div id="myModal" #popupModal class="modal" [style]="{'display': show ? 'block' : 'none'}">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div *ngIf="this.cancelButtonValue" class="ps-3 pt-3 pe-3">
+        <button class="st-icon d-block bg-white ps-2 pb-1 ms-auto" (click)="buttonClicked(this.cancelButtonValue)"><img src="./assets/images/close.png" alt=""></button>
+      </div>
+      <div class="p-3">
+        <p>{{content.text}}</p>
+        <div class="text-end">
+          <ng-container *ngFor="let button of content.button; let i = index;">
+              <button class="std-button py-2 py-lg-2 py-2 px-lg-3 px-3 mt-3 text-size-5" [class]="{'me-3': i < content.button.length - 1}" (click)="buttonClicked(button.buttonValue)">{{button.buttonText}}</button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+</div>

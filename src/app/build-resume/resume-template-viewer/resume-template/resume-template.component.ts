@@ -9,7 +9,7 @@ import { ObjectUtilsService } from '../../services/object-utils.service';
 @Component({
   selector: 'app-resume-template',
   templateUrl: './resume-template.component.html',
-  imports: [SetScaleDirective, FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule],
   styleUrls: ['./resume-template.component.css']
 })
 export class ResumeTemplateComponent extends ObjectUtilsService implements OnInit {

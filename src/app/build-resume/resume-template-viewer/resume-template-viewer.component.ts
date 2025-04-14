@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, ComponentRef, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { Resume } from '../model/resume.model';
 import { Personal } from '../model/personal.model';
 import { ResumeTemplateComponent } from './resume-template/resume-template.component';
@@ -22,9 +22,12 @@ import { NgxPrintModule } from 'ngx-print';
   imports: [ResumeTemplateComponent, NgxPrintModule],
   styleUrls: ['./resume-template-viewer.component.css']
 })
-export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
+export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit, OnChanges {
 
   @ViewChild('templateViewer') templateViewer: ElementRef | undefined;
+  @ViewChild('resumeTemplate') resumeTemplate: ElementRef | undefined;
+  
+  @Input() templateModalView: boolean = false;
   offsetWidth: number | undefined;
 
   
@@ -34,13 +37,37 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
     if(this.templateViewer != null) {
       console.log(this.templateViewer.nativeElement.offsetWidth, "offset width of templateViewer");
       this.offsetWidth = this.templateViewer.nativeElement.offsetWidth;
-      
+      this.setTemplateScale(this.offsetWidth);
+
+    }
+  }
+
+  private setTemplateScale(containerWidth: number | undefined) {
+    if (containerWidth != null) {
+      console.log(containerWidth, " containerWidth", window.innerWidth, " windowInnerWidth")
+      if (window.innerWidth > 793) {
+          this.setScale(containerWidth / 793);
+      } else {
+        this.setScale(window.innerWidth / 793);
+      }
     }
   }
 
   ngAfterViewInit(): void {
+    console.log(this.templateViewer?.nativeElement.offsetWidth, "offsetWidthhhhhhhhh1")
     if(this.templateViewer != null) {
+      console.log(this.templateViewer?.nativeElement.offsetWidth, "offsetWidthhhhhhhhh2")
       this.offsetWidth = this.templateViewer.nativeElement.offsetWidth;
+      this.setTemplateScale(this.offsetWidth);
+
+
+    }
+  }
+
+  private setScale(scale: number) {
+    if (this.resumeTemplate) {
+      console.log("inside setScal widthhhhh3")
+      this.rederer.setStyle(this.resumeTemplate.nativeElement, 'transform', `scale(${scale})`);
     }
   }
 
@@ -49,52 +76,6 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
   
 
   demoContact: DemoContact = new DemoContact();
-//   resumeJson: string = `{
-//     "personal": {
-//         "firstName": "Rahul",
-//         "lastName": "Raj",
-//         "otherFields": [
-//             {
-//                 "isLink": true,
-//                 "link": {
-//                     "title": "email",
-//                     "link": {
-//                         "linkUrl": "rahulraj16mar@gmail.com",
-//                         "linkText": "Email"
-//                     }
-//                 }
-//             },
-//             {
-//                 "isLink": false,
-//                 "text": {
-//                     "title": "phoneNumber",
-//                     "text": "+91 7484898911"
-//                 }
-//             }
-//         ]
-//     }
-// }`;
-//   contactJson: string = `{
-//     "linkTexts": [
-//         {
-//             "isLink": true,
-//             "link": {
-//                 "title": "email",
-//                 "link": {
-//                     "linkUrl": "rahulraj16mar@gmail.com",
-//                     "linkText": "Email"
-//                 }
-//             }
-//         },
-//         {
-//             "isLink": false,
-//             "text": {
-//                 "title": "phoneNumber",
-//                 "text": "+91 7484898911"
-//             }
-//         }
-//     ]
-// }`;
 
   resume: Resume = new Resume();
   personal: Personal = new Personal();
@@ -140,7 +121,7 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
   //   this.doc.body.appendChild(this.compRef.location.nativeElement);
   // }
 
-  constructor(private vcRef: ViewContainerRef) {
+  constructor(private vcRef: ViewContainerRef, private rederer: Renderer2) {
     
       this.personal.firstName = "Rahul";
       this.personal.lastName = "Raj";
@@ -227,6 +208,9 @@ export class ResumeTemplateViewerComponent implements OnInit, AfterViewInit {
 
 
    }
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
    htmlContents(event: Event) {
     console.log("asdf", event);

@@ -2,12 +2,14 @@
 <div #templateViewer>
     <div id="print-section">
         <!-- <iframe style="height: 500px; width: 500px;" #iframe (load)="onLoad(iframe)"></iframe> -->
-         <app-resume-template class="print-section" [containerWidth]="offsetWidth" [resume]="this.resume" style="display: flex; justify-content: center;"></app-resume-template>
+         <div #resumeTemplate style="transform-origin: top;">
+            <app-resume-template class="print-section" [containerWidth]="offsetWidth" [resume]="this.resume" style="display: flex; justify-content: center;"></app-resume-template>
+         </div>
     </div>
 
     <button class="std-button py-3 px-sm-5 px-4 text-size-5 bottom-left-fixed-button"
             [closeWindow]="false"
             [useExistingCss]="true" 
-            printSectionId="print-section" ngxPrint>print</button> 
+            printSectionId="print-section" ngxPrint [style]="{'display': templateModalView ? 'block' : 'none'}">Save</button>
     
 </div>

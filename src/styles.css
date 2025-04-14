@@ -66,11 +66,12 @@ h1, h2, h3, h4, h5, h6, p {
 
 @media screen {
     .print-mimic {
-        /* width: 793px; */
+        /* width: 100%; */
         /* overflow:visibl; */
         /* min-width: 0; */
         /* padding: 20mm; */
-        /* max-width: 100%; */
+        /* width: 793px; */
+        /* max-width: 816px; */
         border: 1px solid #000;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         background-color: #fff;
@@ -82,7 +83,8 @@ h1, h2, h3, h4, h5, h6, p {
     .print-mimic {
         /* width: 793px; */
       transform: scale(1) !important;
-      width: 793px;
+      /* width: 816px; */
+      overflow-y: hidden;
       margin: 0;
       padding: 0;
       border: none;

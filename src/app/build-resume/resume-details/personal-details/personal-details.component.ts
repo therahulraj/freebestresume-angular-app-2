@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, Inject, OnInit } from '@angular/core';
 import { ResumeDetailsService } from '../../services/resume-details.service';
 import { FormArray, FormControl, FormGroup, FormsModule } from '@angular/forms';
 import { Personal } from '../../model/personal.model';
 import { LinkText } from '../../model/link-text.model';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ROUTER_OUTLET_DATA } from '@angular/router';
+import { CommonVariablesService } from '../../services/common-variables.service';
 
 @Component({
   selector: 'app-personal-details',
@@ -12,17 +13,30 @@ import { ActivatedRoute, Router } from '@angular/router';
   imports: [FormsModule, CommonModule],
   styleUrls: ['./personal-details.component.css']
 })
-export class PersonalDetailsComponent implements OnInit {
+export class PersonalDetailsComponent implements OnInit, AfterViewInit {
 
   resumePersonalDetails: Personal = new Personal();
   emptyString: string = "";
   firstName: string = "";
   linkText: Array<boolean> = [];
+  templateModalView: boolean = false;
 
   constructor(private resumeDetailsService: ResumeDetailsService, 
     private router: Router, 
-    private route: ActivatedRoute) { }
-  personalDetailsForm: FormGroup = new FormGroup({});
+    private route: ActivatedRoute,
+    private commonVariablesService: CommonVariablesService,
+    @Inject(ROUTER_OUTLET_DATA) private routeData: any) { }
+
+
+  ngAfterViewInit(): void {
+    this.commonVariablesService.templateModalView.subscribe(templateModalView => {
+        console.log(templateModalView, "viewwwwwwwwwwwwwwwwwwwww");
+        this.templateModalView = templateModalView;
+      }
+    );
+  }
+  
+    // personalDetailsForm: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
     if (this.resumeDetailsService.resume?.personal) {
@@ -30,19 +44,17 @@ export class PersonalDetailsComponent implements OnInit {
       console.log(this.resumePersonalDetails, "personal details");
     }
     console.log("personal");
+    console.log(this.routeData.templateModalView, "routeDataaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
-    this.personalDetailsForm = new FormGroup({
-      'firstName': new FormControl(this.resumePersonalDetails?.firstName),
-      'lastName': new FormControl(this.resumePersonalDetails?.lastName),
-      'otherFields': new FormArray([])
-    })
-
-    if (this.resumeDetailsService.isNotEmpty(this.resumeDetailsService.resume)) {
-
-
-    }
+    // this.personalDetailsForm = new FormGroup({
+    //   'firstName': new FormControl(this.resumePersonalDetails?.firstName),
+    //   'lastName': new FormControl(this.resumePersonalDetails?.lastName),
+    //   'otherFields': new FormArray([])
+    // })
 
   }
+
+  
 
   isNullOrUndefined(value: any): boolean {
     return value == null;
@@ -76,6 +88,13 @@ export class PersonalDetailsComponent implements OnInit {
   showLinkText(index: number) {
     this.linkText[index] = true;
   }
+
+  @HostListener('window:scroll', ['$event'])
+  onResize(event: Event) {
+    console.log(event)
+
+  }
+  
 
 
 }
